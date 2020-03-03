@@ -21,7 +21,7 @@ void Executive::run() 																		//handles call to other class and functi
 		std::string randNumString;
 		int tableSize = 1000003;
 
-		int seed1;
+		// int seed1;
 		// int seed2;
 		// int seed3;
 		// int seed4;
@@ -74,8 +74,8 @@ void Executive::run() 																		//handles call to other class and functi
 			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
 
 		}
-		std::cout << "total Quadratic time: " << QuadEndTime << "\n";
-		std::cout << "total Double time: " << DoubleEndTime << "\n";
+		std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
+		std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
 
 		std::cout << "success Quadratic: " << table1.getNumElementsQuadratic() << "\n";
 		std::cout << "success double: " << table1.getNumElementsDouble() << "\n";
@@ -96,7 +96,10 @@ void Executive::run() 																		//handles call to other class and functi
 		}
 
 		std::cout << "Quadratic found: " << foundQuad1 << "\n";
-		std::cout << "Double found: " << foundDouble1 << "\n\n";
+		std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundQuad1 << "\n";
+		std::cout << "Double found: " << foundDouble1 << "\n";
+		std::cout << "Double not found: " << floor(tableSize*.01)-foundDouble1 << "\n\n";
+
 
 
 		srand(time(NULL));
@@ -119,8 +122,8 @@ void Executive::run() 																		//handles call to other class and functi
 			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
 
 		}
-		std::cout << "total Quadratic time: " << QuadEndTime << "\n";
-		std::cout << "total Double time: " << DoubleEndTime << "\n";
+		std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
+		std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
 
 		std::cout << "success Quadratic: " << table2.getNumElementsQuadratic() << "\n";
 		std::cout << "success double: " << table2.getNumElementsDouble() << "\n";
@@ -142,7 +145,10 @@ void Executive::run() 																		//handles call to other class and functi
 		}
 
 		std::cout << "Quadratic found: " << foundQuad2 << "\n";
-		std::cout << "Double found: " << foundDouble2 << "\n\n";
+		std::cout << "Quadratic not found: " << floor(tableSize*.02)-foundQuad2 << "\n";
+		std::cout << "Double found: " << foundDouble2 << "\n";
+		std::cout << "Quadratic not found: " << floor(tableSize*.02)-foundDouble2 << "\n\n";
+
 
 
 		srand(time(NULL));
@@ -165,8 +171,8 @@ void Executive::run() 																		//handles call to other class and functi
 			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
 
 		}
-		std::cout << "total Quadratic time: " << QuadEndTime << "\n";
-		std::cout << "total Double time: " << DoubleEndTime << "\n";
+		std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
+		std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
 
 		std::cout << "success Quadratic: " << table3.getNumElementsQuadratic() << "\n";
 		std::cout << "success double: " << table3.getNumElementsDouble() << "\n";
@@ -188,7 +194,9 @@ void Executive::run() 																		//handles call to other class and functi
 		}
 
 		std::cout << "Quadratic found: " << foundQuad3 << "\n";
-		std::cout << "Double found: " << foundDouble3 << "\n\n";
+		std::cout << "Quadratic not found: " << floor(tableSize*.03)-foundQuad3 << "\n";
+		std::cout << "Double found: " << foundDouble3 << "\n";
+		std::cout << "Quadratic not found: " << floor(tableSize*.03)-foundDouble3 << "\n\n";
 
 		srand(time(NULL));
 
@@ -209,8 +217,8 @@ void Executive::run() 																		//handles call to other class and functi
 			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
 
 		}
-		std::cout << "total Quadratic time: " << QuadEndTime << "\n";
-		std::cout << "total Double time: " << DoubleEndTime << "\n";
+		std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
+		std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
 
 		std::cout << "success Quadratic: " << table4.getNumElementsQuadratic() << "\n";
 		std::cout << "success double: " << table4.getNumElementsDouble() << "\n";
@@ -232,7 +240,9 @@ void Executive::run() 																		//handles call to other class and functi
 		}
 
 		std::cout << "Quadratic found: " << foundQuad4 << "\n";
-		std::cout << "Double found: " << foundDouble4 << "\n\n";
+		std::cout << "Quadratic not found: " << floor(tableSize*.04)-foundQuad4 << "\n";
+		std::cout << "Double found: " << foundDouble4 << "\n";
+		std::cout << "Quadratic not found: " << floor(tableSize*.04)-foundDouble4 << "\n\n";
 
 		srand(time(NULL));
 
@@ -254,8 +264,8 @@ void Executive::run() 																		//handles call to other class and functi
 			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
 
 		}
-		std::cout << "total Quadratic time: " << QuadEndTime << "\n";
-		std::cout << "total Double time: " << DoubleEndTime << "\n";
+		std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
+		std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
 
 		std::cout << "success Quadratic: " << table5.getNumElementsQuadratic() << "\n";
 		std::cout << "success double: " << table5.getNumElementsDouble() << "\n";
@@ -277,7 +287,9 @@ void Executive::run() 																		//handles call to other class and functi
 		}
 
 		std::cout << "Quadratic found: " << foundQuad5 << "\n";
-		std::cout << "Double found: " << foundDouble5 << "\n\n";
+		std::cout << "Quadratic not found: " << floor(tableSize*.05)-foundQuad5 << "\n";
+		std::cout << "Double found: " << foundDouble5 << "\n";
+		std::cout << "Quadratic not found: " << floor(tableSize*.05)-foundDouble5 << "\n\n";
 
 		//
 		// int userChoice = 0; 																//used to select menu option
