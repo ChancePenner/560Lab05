@@ -17,15 +17,21 @@ void Executive::run() 																		//handles call to other class and functi
 		clock_t DoubleStartTime = 0;
 		clock_t DoubleEndTime = 0;
 
+		float quadTime1 = 0;
+		float quadTime2 = 0;
+		float quadTime3 = 0;
+		float quadTime4 = 0;
+		float quadTime5 = 0;
+
+		float doubleTime1 = 0;
+		float doubleTime2 = 0;
+		float doubleTime3 = 0;
+		float doubleTime4 = 0;
+		float doubleTime5 = 0;
+
 		int random_number;
 		std::string randNumString;
 		int tableSize = 1000003;
-
-		// int seed1;
-		// int seed2;
-		// int seed3;
-		// int seed4;
-		// int seed5;
 
 		srand(time(NULL));
 
@@ -42,22 +48,25 @@ void Executive::run() 																		//handles call to other class and functi
 		int foundQuad4 = 0;
 		int foundQuad5 = 0;
 
+		int notFoundQuad1 = 0;
+		int notFoundQuad2 = 0;
+		int notFoundQuad3 = 0;
+		int notFoundQuad4 = 0;
+		int notFoundQuad5 = 0;
+
 		int foundDouble1 = 0;
 		int foundDouble2 = 0;
 		int foundDouble3 = 0;
 		int foundDouble4 = 0;
 		int foundDouble5 = 0;
 
+		int notFoundDouble1 = 0;
+		int notFoundDouble2 = 0;
+		int notFoundDouble3 = 0;
+		int notFoundDouble4 = 0;
+		int notFoundDouble5 = 0;
 
-		QuadStartTime = clock();
-		std::cout << "clock: " << QuadEndTime << "\n";
-
-		// for(int i=0;i<tableSize*.1;i++)
-		// {
-		// 	random_number = rand()%5000000+1;
-		//
-		// 	// table1.QuadraticAddUser(std::to_string(random_number));
-		// }
+		std::cout << "Calculating...\n\n";
 
 		for(int i=0;i<floor(tableSize*.1);i++)
 		{
@@ -74,11 +83,15 @@ void Executive::run() 																		//handles call to other class and functi
 			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
 
 		}
-		std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
-		std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
+		quadTime1 = float(QuadEndTime)/CLOCKS_PER_SEC;
+		doubleTime1 = float(DoubleEndTime)/CLOCKS_PER_SEC;
 
-		std::cout << "success Quadratic: " << table1.getNumElementsQuadratic() << "\n";
-		std::cout << "success double: " << table1.getNumElementsDouble() << "\n";
+		// std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
+		// std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
+		//
+		//
+		// std::cout << "success Quadratic: " << table1.getNumElementsQuadratic() << "\n";
+		// std::cout << "success double: " << table1.getNumElementsDouble() << "\n";
 
 		for(int i=0;i<floor(tableSize*.01);i++)
 		{
@@ -95,17 +108,15 @@ void Executive::run() 																		//handles call to other class and functi
 
 		}
 
-		std::cout << "Quadratic found: " << foundQuad1 << "\n";
-		std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundQuad1 << "\n";
-		std::cout << "Double found: " << foundDouble1 << "\n";
-		std::cout << "Double not found: " << floor(tableSize*.01)-foundDouble1 << "\n\n";
+		notFoundQuad1 = floor(tableSize*.01)-foundQuad1;
+		notFoundDouble1 = floor(tableSize*.01)-foundDouble1;
 
-
+		// std::cout << "Quadratic found: " << foundQuad1 << "\n";
+		// std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundQuad1 << "\n";
+		// std::cout << "Double found: " << foundDouble1 << "\n";
+		// std::cout << "Double not found: " << floor(tableSize*.01)-foundDouble1 << "\n\n";
 
 		srand(time(NULL));
-
-
-
 
 		for(int i=0;i<floor(tableSize*.2);i++)
 		{
@@ -122,14 +133,17 @@ void Executive::run() 																		//handles call to other class and functi
 			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
 
 		}
-		std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
-		std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
+		quadTime2 = float(QuadEndTime)/CLOCKS_PER_SEC;
+		doubleTime2 = float(DoubleEndTime)/CLOCKS_PER_SEC;
+		//
+		// std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
+		// std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
+		//
+		// std::cout << "success Quadratic: " << table2.getNumElementsQuadratic() << "\n";
+		// std::cout << "success double: " << table2.getNumElementsDouble() << "\n";
 
-		std::cout << "success Quadratic: " << table2.getNumElementsQuadratic() << "\n";
-		std::cout << "success double: " << table2.getNumElementsDouble() << "\n";
 
-
-		for(int i=0;i<floor(tableSize*.02);i++)
+		for(int i=0;i<floor(tableSize*.01);i++)
 		{
 			random_number = rand()%5000000+1;
 			randNumString = std::to_string(random_number);
@@ -144,17 +158,15 @@ void Executive::run() 																		//handles call to other class and functi
 
 		}
 
-		std::cout << "Quadratic found: " << foundQuad2 << "\n";
-		std::cout << "Quadratic not found: " << floor(tableSize*.02)-foundQuad2 << "\n";
-		std::cout << "Double found: " << foundDouble2 << "\n";
-		std::cout << "Quadratic not found: " << floor(tableSize*.02)-foundDouble2 << "\n\n";
+		notFoundQuad2 = floor(tableSize*.01)-foundQuad2;
+		notFoundDouble2 = floor(tableSize*.01)-foundDouble2;
 
-
+		// std::cout << "Quadratic found: " << foundQuad2 << "\n";
+		// std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundQuad2 << "\n";
+		// std::cout << "Double found: " << foundDouble2 << "\n";
+		// std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundDouble2 << "\n\n";
 
 		srand(time(NULL));
-
-
-
 
 		for(int i=0;i<floor(tableSize*.3);i++)
 		{
@@ -171,14 +183,16 @@ void Executive::run() 																		//handles call to other class and functi
 			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
 
 		}
-		std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
-		std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
+		quadTime3 = float(QuadEndTime)/CLOCKS_PER_SEC;
+		doubleTime3 = float(DoubleEndTime)/CLOCKS_PER_SEC;
 
-		std::cout << "success Quadratic: " << table3.getNumElementsQuadratic() << "\n";
-		std::cout << "success double: " << table3.getNumElementsDouble() << "\n";
+		// std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
+		// std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
+		//
+		// std::cout << "success Quadratic: " << table3.getNumElementsQuadratic() << "\n";
+		// std::cout << "success double: " << table3.getNumElementsDouble() << "\n";
 
-
-		for(int i=0;i<floor(tableSize*.03);i++)
+		for(int i=0;i<floor(tableSize*.01);i++)
 		{
 			random_number = rand()%5000000+1;
 			randNumString = std::to_string(random_number);
@@ -193,14 +207,15 @@ void Executive::run() 																		//handles call to other class and functi
 
 		}
 
-		std::cout << "Quadratic found: " << foundQuad3 << "\n";
-		std::cout << "Quadratic not found: " << floor(tableSize*.03)-foundQuad3 << "\n";
-		std::cout << "Double found: " << foundDouble3 << "\n";
-		std::cout << "Quadratic not found: " << floor(tableSize*.03)-foundDouble3 << "\n\n";
+		notFoundQuad3 = floor(tableSize*.01)-foundQuad3;
+		notFoundDouble3 = floor(tableSize*.01)-foundDouble3;
+		//
+		// std::cout << "Quadratic found: " << foundQuad3 << "\n";
+		// std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundQuad3 << "\n";
+		// std::cout << "Double found: " << foundDouble3 << "\n";
+		// std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundDouble3 << "\n\n";
 
 		srand(time(NULL));
-
-
 
 		for(int i=0;i<floor(tableSize*.4);i++)
 		{
@@ -217,14 +232,16 @@ void Executive::run() 																		//handles call to other class and functi
 			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
 
 		}
-		std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
-		std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
+		quadTime4 = float(QuadEndTime)/CLOCKS_PER_SEC;
+		doubleTime4 = float(DoubleEndTime)/CLOCKS_PER_SEC;
 
-		std::cout << "success Quadratic: " << table4.getNumElementsQuadratic() << "\n";
-		std::cout << "success double: " << table4.getNumElementsDouble() << "\n";
+		// std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
+		// std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
+		//
+		// std::cout << "success Quadratic: " << table4.getNumElementsQuadratic() << "\n";
+		// std::cout << "success double: " << table4.getNumElementsDouble() << "\n";
 
-
-		for(int i=0;i<floor(tableSize*.04);i++)
+		for(int i=0;i<floor(tableSize*.01);i++)
 		{
 			random_number = rand()%5000000+1;
 			randNumString = std::to_string(random_number);
@@ -239,15 +256,15 @@ void Executive::run() 																		//handles call to other class and functi
 
 		}
 
-		std::cout << "Quadratic found: " << foundQuad4 << "\n";
-		std::cout << "Quadratic not found: " << floor(tableSize*.04)-foundQuad4 << "\n";
-		std::cout << "Double found: " << foundDouble4 << "\n";
-		std::cout << "Quadratic not found: " << floor(tableSize*.04)-foundDouble4 << "\n\n";
+		notFoundQuad4 = floor(tableSize*.01)-foundQuad4;
+		notFoundDouble4 = floor(tableSize*.01)-foundDouble4;
+		//
+		// std::cout << "Quadratic found: " << foundQuad4 << "\n";
+		// std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundQuad4 << "\n";
+		// std::cout << "Double found: " << foundDouble4 << "\n";
+		// std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundDouble4 << "\n\n";
 
 		srand(time(NULL));
-
-
-
 
 		for(int i=0;i<floor(tableSize*.5);i++)
 		{
@@ -264,14 +281,16 @@ void Executive::run() 																		//handles call to other class and functi
 			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
 
 		}
-		std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
-		std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
+		quadTime5 = float(QuadEndTime)/CLOCKS_PER_SEC;
+		doubleTime5	= float(DoubleEndTime)/CLOCKS_PER_SEC;
 
-		std::cout << "success Quadratic: " << table5.getNumElementsQuadratic() << "\n";
-		std::cout << "success double: " << table5.getNumElementsDouble() << "\n";
+		// std::cout << "total Quadratic time: " << float(QuadEndTime)/CLOCKS_PER_SEC << "\n";
+		// std::cout << "total Double time: " << float(DoubleEndTime)/CLOCKS_PER_SEC << "\n";
+		//
+		// std::cout << "success Quadratic: " << table5.getNumElementsQuadratic() << "\n";
+		// std::cout << "success double: " << table5.getNumElementsDouble() << "\n";
 
-
-		for(int i=0;i<floor(tableSize*.05);i++)
+		for(int i=0;i<floor(tableSize*.01);i++)
 		{
 			random_number = rand()%5000000+1;
 			randNumString = std::to_string(random_number);
@@ -286,195 +305,29 @@ void Executive::run() 																		//handles call to other class and functi
 
 		}
 
-		std::cout << "Quadratic found: " << foundQuad5 << "\n";
-		std::cout << "Quadratic not found: " << floor(tableSize*.05)-foundQuad5 << "\n";
-		std::cout << "Double found: " << foundDouble5 << "\n";
-		std::cout << "Quadratic not found: " << floor(tableSize*.05)-foundDouble5 << "\n\n";
+		notFoundQuad5 = floor(tableSize*.01)-foundQuad5;
+		notFoundDouble5 = floor(tableSize*.01)-foundDouble5;
+		//
+		// std::cout << "Quadratic found: " << foundQuad5 << "\n";
+		// std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundQuad5 << "\n";
+		// std::cout << "Double found: " << foundDouble5 << "\n";
+		// std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundDouble5 << "\n\n";
 
-		//
-		// int userChoice = 0; 																//used to select menu option
-		// std::string nodeName = ""; 																	//used to get the node value user wishes to input
-		// std::string nodePassword = "";
-		// // std::string skip = "";
-		//
-		// std::ifstream inFile; 															//create a variable of type std::ifstream. It will enable reading from files.
-		// inFile.open(m_fileName);														//opens the file
-		//
-		//
-		// if(inFile.is_open())																//Check if file is openn
-		// {
-		// 	std::cin.clear(); 														// unset failbit
-		// 	std::cout.setstate(std::ios_base::failbit);	//to disable cout used by LinearAddUser() and QuadraticAddUser()
-		//
-		//
-		//
-		// 		while(inFile >> nodeName)												//inFile's the command and loops until reaching the end of the sample file
-		// 		{
-		// 				if(nodeName.at(nodeName.length()-1)==',')
-		// 				{
-		// 					nodeName.pop_back();	//removes the ',' that gets inFiled
-		// 				}
-		//
-		// 				inFile >> nodePassword;
-		// 				// inFile >> skip;	//ignore the ','
-		//
-		// 			myHashTable.LinearAddUser(nodeName, nodePassword);
-		// 			try
-		// 			{
-		// 				myHashTable.QuadraticAddUser(nodeName, nodePassword);
-		// 			}
-		// 			catch (std::runtime_error & rte)
-		// 			{
-		// 				std::cout << rte.what();
-		// 			}
-		// 		}
-		// 		inFile.close();
-		// 	std::cin.clear();
-		// 	std::cout.clear();	//to re-enable cout statements
-		// }
-		//
-		// while(userChoice != 6)
-		// {
-		// 	std::cout << "\n";
-		//
-		// 	std::cout << "Choose one operation from the options below:\n\n";
-		// 	std::cout << "1.  Add User\n";
-		// 	std::cout << "2.  Remove User\n";
-		// 	std::cout << "3.  Forgot Password\n";
-		// 	std::cout << "4.  Forgot Username\n";
-		// 	std::cout << "5.  Print Users\n";
-		// 	std::cout << "6.  Exit\n";
-		//
-		// 	std::cout << ">";
-		// 	std::cin >> userChoice;
-		//
-		//
-		// 	while ( std::cin.fail() )
-		// 		{
-		// 			std::cin.clear(); 														// unset failbit
-		// 																					// skip bad input up to the next newline
-		// 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		// 			std::cout << "\n";
-		//
-		// 			std::cout << "Choose one operation from the options below:\n\n";
-		// 			std::cout << "1.  Add User\n";
-		// 			std::cout << "2.  Remove User\n";
-		// 			std::cout << "3.  Forgot Password\n";
-		// 			std::cout << "4.  Forgot Username\n";
-		// 			std::cout << "5.  Print Users\n";
-		// 			std::cout << "6.  Exit\n";
-		//
-		// 			std::cout << ">";
-		// 			std::cin >> userChoice;
-		//
-		// 		}
-		// 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		//
-		//
-		// 	if(userChoice == 1)
-		// 	{
-		// 		std::cout << "Enter user details to be added:\n";
-		// 		std::cin >> nodeName;
-		// 		if(nodeName.at(nodeName.length()-1)==':')
-		// 		{
-		// 			nodeName.pop_back();	//removes the ':' that gets inFiled
-		// 		}
-		// 		std::cin >> nodePassword;
-		//
-		// 		while ( std::cin.fail() )
-		// 		{
-		//
-		// 			std::cin.clear(); 													// unset failbit
-		// 																				// skip bad input up to the next newline
-		// 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		// 			std::cout << "Please enter a valid record: ";
-		//
-		// 			std::cin >> nodeName;   										//gets the nodeValue from the user
-		// 			std::cin >> nodePassword;
-		// 		}
-		// 		myHashTable.LinearAddUser(nodeName, nodePassword);
-		// 		myHashTable.QuadraticAddUser(nodeName, nodePassword);
-		//
-		// 	}
-		// 	else if(userChoice == 2)
-		// 	{
-		// 		std::cout << "Enter user and password to be removed:\n";
-		//
-		// 		std::cin >> nodeName;
-		// 		std::cin >> nodePassword;
-		//
-		// 		while ( std::cin.fail() )
-		// 		{
-		//
-		// 			std::cin.clear(); 													// unset failbit
-		// 																				// skip bad input up to the next newline
-		// 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		// 			std::cout << "Please enter a valid record: ";
-		//
-		// 			std::cin >> nodeName;   										//gets the nodeValue from the user
-		// 			std::cin >> nodePassword;
-		// 		}
-		// 		myHashTable.RemoveUserLinear(nodeName, nodePassword);
-		// 		myHashTable.RemoveUserQuadratic(nodeName, nodePassword);
-		//
-		// 	}
-		// 	else if(userChoice == 3)
-		// 	{
-		// 		std::cout << "Enter username:\n";
-		//
-		// 		std::cin >> nodeName;
-		//
-		// 		while ( std::cin.fail() )
-		// 		{
-		//
-		// 			std::cin.clear(); 													// unset failbit
-		// 																				// skip bad input up to the next newline
-		// 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		// 			std::cout << "Please enter a valid record: ";
-		//
-		// 			std::cin >> nodeName;   										//gets the nodeValue from the user
-		// 			std::cin >> nodePassword;
-		// 		}
-		// 		myHashTable.ForgotPasswordLinear(nodeName);
-		// 		myHashTable.ForgotPasswordQuadratic(nodeName);
-		//
-		// 	}
-		// 	else if(userChoice == 4)
-		// 	{
-		// 		std::cout << "Enter Password:\n";
-		// 		std::cin >> nodePassword;
-		//
-		// 			while ( std::cin.fail() )
-		// 		{
-		// 			std::cin.clear(); 													// unset failbit
-		// 																				// skip bad input up to the next newline
-		// 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		// 			std::cout << "Please enter a valid number: ";
-		//
-		// 			std::cin >> nodePassword;   										//gets the nodeValue from the user
-		// 		}
-		// 		myHashTable.ForgotUsernameLinear(nodePassword);
-		// 		myHashTable.ForgotUsernameQuadratic(nodePassword);
-		//
-		// 	}
-		// 	else if(userChoice == 5)
-		// 	{
-		// 		std::cout << "\nLinear Probing:\n";
-		// 		myHashTable.PrintListLinear();
-		// 		std::cout << "\nQuadratic Probing:\n";
-		// 		myHashTable.PrintListQuadratic();
-		//
-		// 		std::cout << "\n";
-		// 	}
-		// 	else if(userChoice == 6)
-		// 	{
-		// 		std::cout << "Program execution completed!\n";
-		// 	}
-		// 	else
-		// 	{
-		// 		std::cout << "Invalid choice! Please try again.\n";
-		// 	}
-		//
-		// }
+		std::cout << "\t\t\t\t\t\t Performance (Quadratic Probing) \n";
+		std::cout << "Input Size" << "\t\t\t\t100,000 \t200,000 \t300,000 \t400,000 \t500,000\n";
+		std::cout << "Build (s)\t\t\t\t" << quadTime1 << " \t" << quadTime2 << " \t" << quadTime3 << " \t" << quadTime4 << " \t" << quadTime5 << " \n";
+		std::cout << "Number of items successfully found\t" << foundQuad1 << " \t\t" << foundQuad2 << " \t\t" << foundQuad3 << " \t\t" << foundQuad4 << " \t\t" << foundQuad5 << "\n";
+		std::cout << "Number of items not found\t\t" << notFoundQuad1 << " \t\t" << notFoundQuad2 << " \t\t" << notFoundQuad3 << " \t\t" << notFoundQuad4 << " \t\t" << notFoundQuad5 << "\n";
+
+		std::cout << "\n";
+
+		std::cout << "\t\t\t\t\t Performance (Double Hashing) \n";
+		std::cout << "Input Size" << "\t\t\t\t100,000 \t200,000 \t300,000 \t400,000 \t500,000\n";
+		std::cout << "Build (s)\t\t\t\t" << doubleTime1 << " \t" << doubleTime2 << " \t" << doubleTime3 << " \t" << doubleTime4 << " \t" << doubleTime5 << " \n";
+		std::cout << "Number of items successfully found\t" << foundDouble1 << " \t\t" << foundDouble2 << " \t\t" << foundDouble3 << " \t\t" << foundDouble4 << " \t\t" << foundDouble5 << "\n";
+		std::cout << "Number of items not found\t\t" << notFoundDouble1 << " \t\t" << notFoundDouble2 << " \t\t" << notFoundDouble3 << " \t\t" << notFoundDouble4 << " \t\t" << notFoundDouble5 << "\n";
+
+		std::cout << "\n";
+		
 		return;
 	}
