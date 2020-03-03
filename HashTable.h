@@ -29,15 +29,17 @@ class HashTable
 
   void LinearAddUser(std::string userName, std::string password);
 
-  void QuadraticAddUser(std::string userName, std::string password);
+  // void QuadraticAddUser(std::string userName, std::string password);
+  void QuadraticAddUser(std::string password);
 
-  void RemoveUserLinear(std::string userName, std::string password);
 
-  void RemoveUserQuadratic(std::string userName, std::string password);
+  // void RemoveUserLinear(std::string userName, std::string password);
+  //
+  // void RemoveUserQuadratic(std::string userName, std::string password);
 
-  int RemoveUserLinearHashIndex(std::string password, int bucketSize, int iterator);
-
-  int RemoveUserQuadraticHashIndex(std::string password, int bucketSize, int iterator);
+  // int RemoveUserLinearHashIndex(std::string password, int bucketSize, int iterator);
+  //
+  // int RemoveUserQuadraticHashIndex(std::string password, int bucketSize, int iterator);
 
 
   // void PlayerWithGoalCountEqualTo(int password);
@@ -52,7 +54,9 @@ class HashTable
 
   bool FindNameMatchLinear(std::string userName, std::string password);
 
-  bool FindNameMatchQuadratic(std::string userName, std::string password);
+  // bool FindNameMatchQuadratic(std::string userName, std::string password);
+  bool FindNameMatchQuadratic(std::string password);
+
 
   void rehashLinear();
 
@@ -62,13 +66,13 @@ class HashTable
 
   bool isPrime(int num);
 
-  void ForgotPasswordLinear(std::string userName);
-
-  void ForgotUsernameLinear(std::string password);
-
-  void ForgotPasswordQuadratic(std::string userName);
-
-  void ForgotUsernameQuadratic(std::string password);
+  // void ForgotPasswordLinear(std::string userName);
+  //
+  // void ForgotUsernameLinear(std::string password);
+  //
+  // void ForgotPasswordQuadratic(std::string userName);
+  //
+  // void ForgotUsernameQuadratic(std::string password);
 
 
 };

@@ -3,31 +3,29 @@
 
 Node::Node()
 {
-	m_userName = "";
+	// m_userName = "";
 	m_password = "";
 	m_wasAlwaysEmpty = true;
 }
 
-Node::Node(std::string userName, std::string password) //default constructor the sets m_userName and m_password
+Node::Node(std::string password) //default constructor the sets m_userName and m_password
 {
-	m_userName = userName;
 	m_password = password;
 	m_wasAlwaysEmpty = true;
 }
 
-std::string Node::getuserName()const //gets the entry of the Node
-{
-	return m_userName;
-}
+// std::string Node::getuserName()const //gets the entry of the Node
+// {
+// 	return m_userName;
+// }
 
 std::string Node::getPassword()const //gets the entry of the Node
 {
 	return m_password;
 }
 
-void Node::setEntry(std::string userName, std::string password) //sets m_userName and m_password equal to the values passed in
+void Node::setEntry(std::string password) //sets m_userName and m_password equal to the values passed in
 {
-	m_userName = userName;
 	m_password = password;
 }
 
@@ -49,13 +47,14 @@ void Node::print()
 	}
 	else
 	{
-		std::cout << m_userName << ":" << m_password;
+		std::cout << m_password;
+		// std::cout << m_userName << ":" << m_password;
 	}
 }
 
 bool Node::isEmpty()
 {
-	if(m_userName.empty())
+	if(m_password.empty())
 	{
 		return true;
 	}
@@ -67,7 +66,7 @@ bool Node::isEmpty()
 
 void Node::removeUser()
 {
-	m_userName = "";
+	// m_userName = "";
 	m_password = "";
 }
 

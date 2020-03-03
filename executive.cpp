@@ -14,6 +14,7 @@ void Executive::run() 																		//handles call to other class and functi
 		clock_t endTime;
 
 		int random_number;
+		std::string randNumString;
 		int tableSize = 1000003;
 
 		int seed1;
@@ -34,17 +35,31 @@ void Executive::run() 																		//handles call to other class and functi
 		HashTable table4;
 		HashTable table5;
 
+		std::string word = "101010";
+
+		table1.QuadraticAddUser(word);
 
 		startTime = clock();
 		std::cout << random_number << "\n";
 		endTime = clock() - startTime;
 		std::cout << "clock: " << endTime << "\n";
 
-		for(int i=0;i<tableSize*.1;i++)
+		// for(int i=0;i<tableSize*.1;i++)
+		// {
+		// 	random_number = rand()%5000000+1;
+		//
+		// 	// table1.QuadraticAddUser(std::to_string(random_number));
+		// }
+
+		for(int i=0;i<10;i++)
 		{
 			random_number = rand()%5000000+1;
-
-			table1.QuadraticAddUser(std::to_string(random_number));
+			std::cout << "rand: ";
+			std::cout << random_number << "\n";
+			randNumString = std::to_string(random_number);
+			std::cout << "testing";
+			std::cout << "a";
+			table1.QuadraticAddUser(randNumString);
 		}
 
 
@@ -233,5 +248,5 @@ void Executive::run() 																		//handles call to other class and functi
 		// 	}
 		//
 		// }
-
+		return;
 	}

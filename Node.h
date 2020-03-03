@@ -6,7 +6,7 @@
 class Node
 {
 	private:
-	std::string m_userName; //the player name set to each Node
+	// std::string m_userName; //the player name set to each Node
 	std::string m_password;	//the goal value set to each Node
 	// Node* m_next;	//a Node pointer that points to the next Node in the list
 	bool m_wasAlwaysEmpty;
@@ -20,13 +20,13 @@ class Node
      * @post Takes in entry and creates a new Node of that value
      * @param entry: an int value assigned to each Node
      **/
-	Node(std::string m_userName, std::string m_password);
+	Node(std::string m_password);
 
 	 /**
      * @pre Used to return the player at a Node
      * @post Returns the player at a given Node
      **/
-	std::string getuserName()const;
+	// std::string getuserName()const;
 
 	/**
 		* @pre Used to return the password at a Node
@@ -40,7 +40,9 @@ class Node
      * @post Sets the value of a Node to the passed in entry
      * @param entry: An int value that is assigned to a Node
      **/
-	void setEntry(std::string userName, std::string password);
+	// void setEntry(std::string userName, std::string password);
+	void setEntry(std::string password);
+
 
 	 /**
      * @pre Used to point to the next Node in a list
