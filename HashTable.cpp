@@ -21,6 +21,7 @@ HashTable::~HashTable()
 {
   delete[] m_linearArr;
   delete[] m_quadraticArr;
+  delete[] m_doubleArr;
 
 }
 
