@@ -165,6 +165,65 @@ int HashTable::HashFunctionDouble(std::string password, int bucketSize)
 }
 
 
+bool HashTable::findQuad(std::string number)
+{
+  int sum = 0;
+  int hOfX = 0;
+  int index = 0;  //initial h(x) value
+  int iterator = 0;
+
+  sum = std::stoi(number);
+
+
+  index = sum % m_quadraticSize;
+  hOfX = index;
+
+  while(m_quadraticArr[index].getPassword() != number)
+  {
+    index = (hOfX + (iterator*iterator) ) % m_quadraticSize;
+    iterator++;
+
+    if(iterator == 25)
+    {
+      // std::cout << "overflow\n";
+      // throw (std::runtime_error("OVERFLOW\n"));
+      return false; //NEED TO ACTUALLY REPORT FAILURE
+    }
+
+  }
+  return true;
+
+}
+
+bool HashTable::findDouble(std::string number)
+{
+  int sum = 0;
+  int hOfX = 0;
+  int index = 0;  //initial h(x) value
+  int iterator = 0;
+
+
+  sum = std::stoi(number);
+
+  int x = sum;
+  index = sum % m_doubleSize;
+  hOfX = index;
+
+
+  while(m_doubleArr[index].getPassword() != number)
+  {
+    index = (hOfX + iterator*(m_R - (x % m_R))) % m_doubleSize;
+    iterator++;
+
+    if(iterator == 25)
+    {
+      // std::cout << "Overflow??\n";
+      // throw (std::runtime_error("OVERFLOW\n"));
+      return false; //NEED TO ACTUALLY REPORT FAILURE
+    }
+  }
+  return true;
+}
 
 
 

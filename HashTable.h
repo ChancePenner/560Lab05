@@ -51,6 +51,9 @@ class HashTable
     return m_numElementsQuadratic;
   }
 
+  bool findQuad(std::string number);
+
+  bool findDouble(std::string number);
 
 
   // void RemoveUserLinear(std::string userName, std::string password);

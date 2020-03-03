@@ -36,6 +36,18 @@ void Executive::run() 																		//handles call to other class and functi
 		HashTable table4;
 		HashTable table5;
 
+		int foundQuad1 = 0;
+		int foundQuad2 = 0;
+		int foundQuad3 = 0;
+		int foundQuad4 = 0;
+		int foundQuad5 = 0;
+
+		int foundDouble1 = 0;
+		int foundDouble2 = 0;
+		int foundDouble3 = 0;
+		int foundDouble4 = 0;
+		int foundDouble5 = 0;
+
 
 		QuadStartTime = clock();
 		std::cout << "clock: " << QuadEndTime << "\n";
@@ -66,8 +78,25 @@ void Executive::run() 																		//handles call to other class and functi
 		std::cout << "total Double time: " << DoubleEndTime << "\n";
 
 		std::cout << "success Quadratic: " << table1.getNumElementsQuadratic() << "\n";
-		std::cout << "success double: " << table1.getNumElementsDouble() << "\n\n";
+		std::cout << "success double: " << table1.getNumElementsDouble() << "\n";
 
+		for(int i=0;i<floor(tableSize*.01);i++)
+		{
+			random_number = rand()%5000000+1;
+			randNumString = std::to_string(random_number);
+			if(table1.findQuad(randNumString))
+			{
+				foundQuad1++;
+			}
+			if(table1.findDouble(randNumString))
+			{
+				foundDouble1++;
+			}
+
+		}
+
+		std::cout << "Quadratic found: " << foundQuad1 << "\n";
+		std::cout << "Double found: " << foundDouble1 << "\n\n";
 
 
 		srand(time(NULL));
@@ -94,8 +123,26 @@ void Executive::run() 																		//handles call to other class and functi
 		std::cout << "total Double time: " << DoubleEndTime << "\n";
 
 		std::cout << "success Quadratic: " << table2.getNumElementsQuadratic() << "\n";
-		std::cout << "success double: " << table2.getNumElementsDouble() << "\n\n";
+		std::cout << "success double: " << table2.getNumElementsDouble() << "\n";
 
+
+		for(int i=0;i<floor(tableSize*.02);i++)
+		{
+			random_number = rand()%5000000+1;
+			randNumString = std::to_string(random_number);
+			if(table2.findQuad(randNumString))
+			{
+				foundQuad2++;
+			}
+			if(table2.findDouble(randNumString))
+			{
+				foundDouble2++;
+			}
+
+		}
+
+		std::cout << "Quadratic found: " << foundQuad2 << "\n";
+		std::cout << "Double found: " << foundDouble2 << "\n\n";
 
 
 		srand(time(NULL));
@@ -122,8 +169,26 @@ void Executive::run() 																		//handles call to other class and functi
 		std::cout << "total Double time: " << DoubleEndTime << "\n";
 
 		std::cout << "success Quadratic: " << table3.getNumElementsQuadratic() << "\n";
-		std::cout << "success double: " << table3.getNumElementsDouble() << "\n\n";
+		std::cout << "success double: " << table3.getNumElementsDouble() << "\n";
 
+
+		for(int i=0;i<floor(tableSize*.03);i++)
+		{
+			random_number = rand()%5000000+1;
+			randNumString = std::to_string(random_number);
+			if(table3.findQuad(randNumString))
+			{
+				foundQuad3++;
+			}
+			if(table3.findDouble(randNumString))
+			{
+				foundDouble3++;
+			}
+
+		}
+
+		std::cout << "Quadratic found: " << foundQuad3 << "\n";
+		std::cout << "Double found: " << foundDouble3 << "\n\n";
 
 		srand(time(NULL));
 
@@ -148,9 +213,26 @@ void Executive::run() 																		//handles call to other class and functi
 		std::cout << "total Double time: " << DoubleEndTime << "\n";
 
 		std::cout << "success Quadratic: " << table4.getNumElementsQuadratic() << "\n";
-		std::cout << "success double: " << table4.getNumElementsDouble() << "\n\n";
+		std::cout << "success double: " << table4.getNumElementsDouble() << "\n";
 
 
+		for(int i=0;i<floor(tableSize*.04);i++)
+		{
+			random_number = rand()%5000000+1;
+			randNumString = std::to_string(random_number);
+			if(table4.findQuad(randNumString))
+			{
+				foundQuad4++;
+			}
+			if(table4.findDouble(randNumString))
+			{
+				foundDouble4++;
+			}
+
+		}
+
+		std::cout << "Quadratic found: " << foundQuad4 << "\n";
+		std::cout << "Double found: " << foundDouble4 << "\n\n";
 
 		srand(time(NULL));
 
@@ -176,7 +258,26 @@ void Executive::run() 																		//handles call to other class and functi
 		std::cout << "total Double time: " << DoubleEndTime << "\n";
 
 		std::cout << "success Quadratic: " << table5.getNumElementsQuadratic() << "\n";
-		std::cout << "success double: " << table5.getNumElementsDouble() << "\n\n";
+		std::cout << "success double: " << table5.getNumElementsDouble() << "\n";
+
+
+		for(int i=0;i<floor(tableSize*.05);i++)
+		{
+			random_number = rand()%5000000+1;
+			randNumString = std::to_string(random_number);
+			if(table5.findQuad(randNumString))
+			{
+				foundQuad5++;
+			}
+			if(table5.findDouble(randNumString))
+			{
+				foundDouble5++;
+			}
+
+		}
+
+		std::cout << "Quadratic found: " << foundQuad5 << "\n";
+		std::cout << "Double found: " << foundDouble5 << "\n\n";
 
 		//
 		// int userChoice = 0; 																//used to select menu option
