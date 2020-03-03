@@ -1,0 +1,21 @@
+Report:  Submit a report by answering the questions shown below along with your Lab work.
+Your answers should not be more than 5 to 6 sentences for each question.
+
+
+1.Observe your output for quadratic probing and double hashing and compare the performance of both techniques for the build and find operations.
+
+According to my output, quadratic probing is slightly faster than double hashing. In terms of number of items successfully found, quadratic probing
+occasionally finds a couple more entries than double hashing, but only barely. I assume quadratic is slightly faster because it requires just the use
+of one function, whereas double hashing utilizes another function, and constantly has to recalculate stuff. Quadratic probing just increases an iterator
+by one, and does simply square calculations. As for find, Quadratic probably finds a few more simply because it is able to build almost every entry,
+but double hashing occasionally is not able to before k=25.
+
+2.Which hashing technique performs better when searching and why?
+Quadratic probing performs slightly better. As I mentioned, this is probably just because it is slightly more consistent in being able to insert
+everything, so it is able to find more, whereas double hashing rarely has too many collisions before k=25, so it won't always insert every entry,
+and hence cannot find some random entries. Quadratic probing also is able to search quicker because it utilizes just one equation/function, where
+double hashing has to constantly reference between two equations/functions.
+
+
+3.Justify the worst case complexity of each of your experimental profiling results and compare them to the worst
+case complexity of the theoretical results for the build times with each of the hashing techniques.

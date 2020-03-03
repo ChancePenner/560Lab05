@@ -143,7 +143,7 @@ void Executive::run() 																		//handles call to other class and functi
 		// std::cout << "success double: " << table2.getNumElementsDouble() << "\n";
 
 
-		for(int i=0;i<floor(tableSize*.01);i++)
+		for(int i=0;i<floor(tableSize*.02);i++)
 		{
 			random_number = rand()%5000000+1;
 			randNumString = std::to_string(random_number);
@@ -158,8 +158,8 @@ void Executive::run() 																		//handles call to other class and functi
 
 		}
 
-		notFoundQuad2 = floor(tableSize*.01)-foundQuad2;
-		notFoundDouble2 = floor(tableSize*.01)-foundDouble2;
+		notFoundQuad2 = floor(tableSize*.02)-foundQuad2;
+		notFoundDouble2 = floor(tableSize*.02)-foundDouble2;
 
 		// std::cout << "Quadratic found: " << foundQuad2 << "\n";
 		// std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundQuad2 << "\n";
@@ -192,7 +192,7 @@ void Executive::run() 																		//handles call to other class and functi
 		// std::cout << "success Quadratic: " << table3.getNumElementsQuadratic() << "\n";
 		// std::cout << "success double: " << table3.getNumElementsDouble() << "\n";
 
-		for(int i=0;i<floor(tableSize*.01);i++)
+		for(int i=0;i<floor(tableSize*.03);i++)
 		{
 			random_number = rand()%5000000+1;
 			randNumString = std::to_string(random_number);
@@ -207,8 +207,8 @@ void Executive::run() 																		//handles call to other class and functi
 
 		}
 
-		notFoundQuad3 = floor(tableSize*.01)-foundQuad3;
-		notFoundDouble3 = floor(tableSize*.01)-foundDouble3;
+		notFoundQuad3 = floor(tableSize*.03)-foundQuad3;
+		notFoundDouble3 = floor(tableSize*.03)-foundDouble3;
 		//
 		// std::cout << "Quadratic found: " << foundQuad3 << "\n";
 		// std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundQuad3 << "\n";
@@ -241,7 +241,7 @@ void Executive::run() 																		//handles call to other class and functi
 		// std::cout << "success Quadratic: " << table4.getNumElementsQuadratic() << "\n";
 		// std::cout << "success double: " << table4.getNumElementsDouble() << "\n";
 
-		for(int i=0;i<floor(tableSize*.01);i++)
+		for(int i=0;i<floor(tableSize*.04);i++)
 		{
 			random_number = rand()%5000000+1;
 			randNumString = std::to_string(random_number);
@@ -256,8 +256,8 @@ void Executive::run() 																		//handles call to other class and functi
 
 		}
 
-		notFoundQuad4 = floor(tableSize*.01)-foundQuad4;
-		notFoundDouble4 = floor(tableSize*.01)-foundDouble4;
+		notFoundQuad4 = floor(tableSize*.04)-foundQuad4;
+		notFoundDouble4 = floor(tableSize*.04)-foundDouble4;
 		//
 		// std::cout << "Quadratic found: " << foundQuad4 << "\n";
 		// std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundQuad4 << "\n";
@@ -290,7 +290,7 @@ void Executive::run() 																		//handles call to other class and functi
 		// std::cout << "success Quadratic: " << table5.getNumElementsQuadratic() << "\n";
 		// std::cout << "success double: " << table5.getNumElementsDouble() << "\n";
 
-		for(int i=0;i<floor(tableSize*.01);i++)
+		for(int i=0;i<floor(tableSize*.05);i++)
 		{
 			random_number = rand()%5000000+1;
 			randNumString = std::to_string(random_number);
@@ -305,8 +305,8 @@ void Executive::run() 																		//handles call to other class and functi
 
 		}
 
-		notFoundQuad5 = floor(tableSize*.01)-foundQuad5;
-		notFoundDouble5 = floor(tableSize*.01)-foundDouble5;
+		notFoundQuad5 = floor(tableSize*.05)-foundQuad5;
+		notFoundDouble5 = floor(tableSize*.05)-foundDouble5;
 		//
 		// std::cout << "Quadratic found: " << foundQuad5 << "\n";
 		// std::cout << "Quadratic not found: " << floor(tableSize*.01)-foundQuad5 << "\n";
@@ -328,6 +328,6 @@ void Executive::run() 																		//handles call to other class and functi
 		std::cout << "Number of items not found\t\t" << notFoundDouble1 << " \t\t" << notFoundDouble2 << " \t\t" << notFoundDouble3 << " \t\t" << notFoundDouble4 << " \t\t" << notFoundDouble5 << "\n";
 
 		std::cout << "\n";
-		
+
 		return;
 	}
