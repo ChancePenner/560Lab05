@@ -16,12 +16,19 @@ class HashTable
   int m_quadraticSize;
   int m_numElementsQuadratic;
 
+  Node* m_doubleArr;
+  int m_doubleSize;
+  int m_numElementsDouble;
+  int m_R = 773;
+
 
   public:
 
   int HashFunctionLinear(std::string password, int bucketSize);
 
   int HashFunctionQuadratic(std::string password, int bucketSize);
+
+  int HashFunctionDouble(std::string password, int bucketSize);
 
   HashTable();
 
@@ -31,6 +38,19 @@ class HashTable
 
   // void QuadraticAddUser(std::string userName, std::string password);
   void QuadraticAddUser(std::string password);
+
+  void DoubleAddUser(std::string password);
+
+  int getNumElementsDouble()
+  {
+    return m_numElementsDouble;
+  }
+
+  int getNumElementsQuadratic()
+  {
+    return m_numElementsQuadratic;
+  }
+
 
 
   // void RemoveUserLinear(std::string userName, std::string password);

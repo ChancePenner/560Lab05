@@ -7,26 +7,27 @@
 #include <cctype>
 #include <stdlib.h> //srand, rand
 #include <time.h>
+#include "math.h"
 
 void Executive::run() 																		//handles call to other class and functions
 	{
-		clock_t startTime;
-		clock_t endTime;
+		clock_t QuadStartTime = 0;
+		clock_t QuadEndTime = 0;
+
+		clock_t DoubleStartTime = 0;
+		clock_t DoubleEndTime = 0;
 
 		int random_number;
 		std::string randNumString;
 		int tableSize = 1000003;
 
 		int seed1;
-		int seed2;
-		int seed3;
-		int seed4;
-		int seed5;
+		// int seed2;
+		// int seed3;
+		// int seed4;
+		// int seed5;
 
 		srand(time(NULL));
-
-
-
 
 		random_number = rand()%10+1;
 		HashTable table1;
@@ -35,14 +36,9 @@ void Executive::run() 																		//handles call to other class and functi
 		HashTable table4;
 		HashTable table5;
 
-		std::string word = "101010";
 
-		table1.QuadraticAddUser(word);
-
-		startTime = clock();
-		std::cout << random_number << "\n";
-		endTime = clock() - startTime;
-		std::cout << "clock: " << endTime << "\n";
+		QuadStartTime = clock();
+		std::cout << "clock: " << QuadEndTime << "\n";
 
 		// for(int i=0;i<tableSize*.1;i++)
 		// {
@@ -51,17 +47,136 @@ void Executive::run() 																		//handles call to other class and functi
 		// 	// table1.QuadraticAddUser(std::to_string(random_number));
 		// }
 
-		for(int i=0;i<10;i++)
+		for(int i=0;i<floor(tableSize*.1);i++)
 		{
 			random_number = rand()%5000000+1;
-			std::cout << "rand: ";
-			std::cout << random_number << "\n";
-			randNumString = std::to_string(random_number);
-			std::cout << "testing";
-			std::cout << "a";
-			table1.QuadraticAddUser(randNumString);
-		}
 
+			randNumString = std::to_string(random_number);
+
+			QuadStartTime = clock();
+			table1.QuadraticAddUser(randNumString);
+			QuadEndTime = QuadEndTime + (clock() - QuadStartTime);
+
+			DoubleStartTime = clock();
+			table1.DoubleAddUser(randNumString);
+			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
+
+		}
+		std::cout << "total Quadratic time: " << QuadEndTime << "\n";
+		std::cout << "total Double time: " << DoubleEndTime << "\n";
+
+		std::cout << "success Quadratic: " << table1.getNumElementsQuadratic() << "\n";
+		std::cout << "success double: " << table1.getNumElementsDouble() << "\n\n";
+
+
+
+		srand(time(NULL));
+
+
+
+
+		for(int i=0;i<floor(tableSize*.2);i++)
+		{
+			random_number = rand()%5000000+1;
+
+			randNumString = std::to_string(random_number);
+
+			QuadStartTime = clock();
+			table2.QuadraticAddUser(randNumString);
+			QuadEndTime = QuadEndTime + (clock() - QuadStartTime);
+
+			DoubleStartTime = clock();
+			table2.DoubleAddUser(randNumString);
+			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
+
+		}
+		std::cout << "total Quadratic time: " << QuadEndTime << "\n";
+		std::cout << "total Double time: " << DoubleEndTime << "\n";
+
+		std::cout << "success Quadratic: " << table2.getNumElementsQuadratic() << "\n";
+		std::cout << "success double: " << table2.getNumElementsDouble() << "\n\n";
+
+
+
+		srand(time(NULL));
+
+
+
+
+		for(int i=0;i<floor(tableSize*.3);i++)
+		{
+			random_number = rand()%5000000+1;
+
+			randNumString = std::to_string(random_number);
+
+			QuadStartTime = clock();
+			table3.QuadraticAddUser(randNumString);
+			QuadEndTime = QuadEndTime + (clock() - QuadStartTime);
+
+			DoubleStartTime = clock();
+			table3.DoubleAddUser(randNumString);
+			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
+
+		}
+		std::cout << "total Quadratic time: " << QuadEndTime << "\n";
+		std::cout << "total Double time: " << DoubleEndTime << "\n";
+
+		std::cout << "success Quadratic: " << table3.getNumElementsQuadratic() << "\n";
+		std::cout << "success double: " << table3.getNumElementsDouble() << "\n\n";
+
+
+		srand(time(NULL));
+
+
+
+		for(int i=0;i<floor(tableSize*.4);i++)
+		{
+			random_number = rand()%5000000+1;
+
+			randNumString = std::to_string(random_number);
+
+			QuadStartTime = clock();
+			table4.QuadraticAddUser(randNumString);
+			QuadEndTime = QuadEndTime + (clock() - QuadStartTime);
+
+			DoubleStartTime = clock();
+			table4.DoubleAddUser(randNumString);
+			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
+
+		}
+		std::cout << "total Quadratic time: " << QuadEndTime << "\n";
+		std::cout << "total Double time: " << DoubleEndTime << "\n";
+
+		std::cout << "success Quadratic: " << table4.getNumElementsQuadratic() << "\n";
+		std::cout << "success double: " << table4.getNumElementsDouble() << "\n\n";
+
+
+
+		srand(time(NULL));
+
+
+
+
+		for(int i=0;i<floor(tableSize*.5);i++)
+		{
+			random_number = rand()%5000000+1;
+
+			randNumString = std::to_string(random_number);
+
+			QuadStartTime = clock();
+			table5.QuadraticAddUser(randNumString);
+			QuadEndTime = QuadEndTime + (clock() - QuadStartTime);
+
+			DoubleStartTime = clock();
+			table5.DoubleAddUser(randNumString);
+			DoubleEndTime = DoubleEndTime + (clock() - DoubleStartTime);
+
+		}
+		std::cout << "total Quadratic time: " << QuadEndTime << "\n";
+		std::cout << "total Double time: " << DoubleEndTime << "\n";
+
+		std::cout << "success Quadratic: " << table5.getNumElementsQuadratic() << "\n";
+		std::cout << "success double: " << table5.getNumElementsDouble() << "\n\n";
 
 		//
 		// int userChoice = 0; 																//used to select menu option

@@ -11,6 +11,10 @@ HashTable::HashTable()
   m_quadraticSize = 1000003;
   m_quadraticArr = new Node[m_quadraticSize];
   m_numElementsQuadratic = 0;
+
+  m_doubleSize = 1000003;
+  m_doubleArr = new Node[m_doubleSize];
+  m_numElementsDouble = 0;
 }
 
 HashTable::~HashTable()
@@ -72,31 +76,34 @@ int HashTable::HashFunctionQuadratic(std::string password, int bucketSize)
   int index = 0;  //initial h(x) value
   int iterator = 0;
   // return password % bucketSize;
-  for(unsigned int i=0;i<password.length();i++)
-  {
-    if(isdigit(password.at(i)))
-    {
-      sum = sum + (password.at(i)-48);
-      // std::cout << "hit: " << password.at(i) << " is " << (password.at(i)-48);
-    }
-    else
-    {
-      sum = sum + password.at(i);
-    }
-  }
+  // for(unsigned int i=0;i<password.length();i++)
+  // {
+  //   if(isdigit(password.at(i)))
+  //   {
+  //     sum = sum + (password.at(i)-48);
+  //     // std::cout << "hit: " << password.at(i) << " is " << (password.at(i)-48);
+  //   }
+  //   else
+  //   {
+  //     sum = sum + password.at(i);
+  //   }
+  // }
   // std::cout << "password: " << password << " index: " << sum%bucketSize << "\n";
+  sum = std::stoi(password);
+
 
   index = sum % bucketSize;
   hOfX = index;
 
-  while(!m_quadraticArr[index].isEmpty() || index == bucketSize)
+  while(!m_quadraticArr[index].isEmpty() )
   {
     index = (hOfX + (iterator*iterator) ) % bucketSize;
     iterator++;
 
-    if(iterator == bucketSize)
+    if(iterator == 25)
     {
-      throw (std::runtime_error("OVERFLOW\n"));
+      // std::cout << "overflow\n";
+      // throw (std::runtime_error("OVERFLOW\n"));
       return bucketSize; //NEED TO ACTUALLY REPORT FAILURE
     }
 
@@ -104,6 +111,166 @@ int HashTable::HashFunctionQuadratic(std::string password, int bucketSize)
 
 
   return index;
+}
+
+
+int HashTable::HashFunctionDouble(std::string password, int bucketSize)
+{
+  //Double Probing
+  //H+(x) = R - (x mod R)
+
+  //CHECK IF NEEDS REHASHED
+
+  int sum = 0;
+  int hOfX = 0;
+  int index = 0;  //initial h(x) value
+  int iterator = 0;
+  // return password % bucketSize;
+  // for(unsigned int i=0;i<password.length();i++)
+  // {
+  //   if(isdigit(password.at(i)))
+  //   {
+  //     sum = sum + (password.at(i)-48);
+  //     // std::cout << "hit: " << password.at(i) << " is " << (password.at(i)-48);
+  //   }
+  //   else
+  //   {
+  //     sum = sum + password.at(i);
+  //   }
+  // }
+  // std::cout << "password: " << password << " index: " << sum%bucketSize << "\n";
+
+  sum = std::stoi(password);
+
+  int x = sum;
+  index = sum % bucketSize;
+  hOfX = index;
+
+  while(!m_doubleArr[index].isEmpty())
+  {
+    index = (hOfX + iterator*(m_R - (x % m_R))) % bucketSize;
+    iterator++;
+
+    if(iterator == 25)
+    {
+      // std::cout << "Overflow??\n";
+      // throw (std::runtime_error("OVERFLOW\n"));
+      return bucketSize; //NEED TO ACTUALLY REPORT FAILURE
+    }
+
+  }
+
+
+  return index;
+}
+
+
+
+
+
+
+void HashTable::QuadraticAddUser(std::string password)
+{
+  // std::cout << "in QuadraticAddUser\n";
+  // bool mustRehash = false;
+  //check if needs rehashed
+  // double loadFactor = m_numElementsQuadratic/(double)m_quadraticSize;
+  // if(loadFactor > 0.5)
+  // {
+  //   std::cout << "REHASH\n";
+  //
+  //   mustRehash = true;
+  // }
+
+
+  bool noDuplicate = true;
+  // for(int i=0;i<m_quadraticSize;i++)
+  // {
+  //   if(FindNameMatchQuadratic(password))
+  //   {
+  //     noDuplicate = false;
+  //   }
+  // }
+
+  if(noDuplicate)
+  {
+    Node temp(password);
+    int index = HashFunctionQuadratic(password, m_quadraticSize);
+    if(index == m_doubleSize)
+    {
+      return;
+    }
+    m_quadraticArr[index] = temp;
+    // m_quadraticArr[index].setWasAlwaysEmpty(false);
+    // std::cout << "Quadratic Probing:\n\n";
+    // std::cout << userName << " has been successfully added at location " << index << " using Quadratic probing\n\n";
+    m_numElementsQuadratic++;
+
+    // if(mustRehash)
+    // {
+    //   rehashQuadratic();
+    //   //if we need to rehash, then we do it after first inserting, so that way
+    //   //we know where it was supposed to go
+    //   //call rehash(userName, password);
+    // }
+
+  }
+  else
+  {
+    std::cout << password << " was already in the table\n";
+  }
+}
+
+void HashTable::DoubleAddUser(std::string password)
+{
+  // std::cout << "in QuadraticAddUser\n";
+  // bool mustRehash = false;
+  //check if needs rehashed
+  // double loadFactor = m_numElementsQuadratic/(double)m_quadraticSize;
+  // if(loadFactor > 0.5)
+  // {
+  //   std::cout << "REHASH\n";
+  //
+  //   mustRehash = true;
+  // }
+
+
+  // bool noDuplicate = true;
+  // for(int i=0;i<m_quadraticSize;i++)
+  // {
+  //   if(FindNameMatchQuadratic(password))
+  //   {
+  //     noDuplicate = false;
+  //   }
+  // }
+
+  // if(noDuplicate)
+  // {
+    Node temp(password);
+    int index = HashFunctionDouble(password, m_quadraticSize);
+    if(index == m_doubleSize)
+    {
+      return;
+    }
+    m_doubleArr[index] = temp;
+    // m_doubleArr[index].setWasAlwaysEmpty(false);
+    // std::cout << "Quadratic Probing:\n\n";
+    // std::cout << userName << " has been successfully added at location " << index << " using Quadratic probing\n\n";
+    m_numElementsDouble++;
+
+    // if(mustRehash)
+    // {
+    //   rehashQuadratic();
+    //   //if we need to rehash, then we do it after first inserting, so that way
+    //   //we know where it was supposed to go
+    //   //call rehash(userName, password);
+    // }
+
+  // }
+  // else
+  // {
+  //   std::cout << password << " was already in the table\n";
+  // }
 }
 
 // void HashTable::LinearAddUser(std::string userName, std::string password)
@@ -182,55 +349,6 @@ int HashTable::HashFunctionQuadratic(std::string password, int bucketSize)
 //   delete[] temp;
 //
 // }
-
-void HashTable::QuadraticAddUser(std::string password)
-{
-  std::cout << "in QuadraticAddUser\n";
-  // bool mustRehash = false;
-  //check if needs rehashed
-  // double loadFactor = m_numElementsQuadratic/(double)m_quadraticSize;
-  // if(loadFactor > 0.5)
-  // {
-  //   std::cout << "REHASH\n";
-  //
-  //   mustRehash = true;
-  // }
-
-
-  bool noDuplicate = true;
-  // for(int i=0;i<m_quadraticSize;i++)
-  // {
-  //   if(FindNameMatchQuadratic(password))
-  //   {
-  //     noDuplicate = false;
-  //   }
-  // }
-
-  if(noDuplicate)
-  {
-    Node temp(password);
-    int index = HashFunctionQuadratic(password, m_quadraticSize);
-    m_quadraticArr[index] = temp;
-    m_quadraticArr[index].setWasAlwaysEmpty(false);
-    std::cout << "Quadratic Probing:\n\n";
-    // std::cout << userName << " has been successfully added at location " << index << " using Quadratic probing\n\n";
-    m_numElementsQuadratic++;
-
-    // if(mustRehash)
-    // {
-    //   rehashQuadratic();
-    //   //if we need to rehash, then we do it after first inserting, so that way
-    //   //we know where it was supposed to go
-    //   //call rehash(userName, password);
-    // }
-
-  }
-  else
-  {
-    std::cout << password << " was already in the table\n";
-  }
-}
-
 
 // void HashTable::rehashQuadratic()
 // {
