@@ -19,3 +19,9 @@ double hashing has to constantly reference between two equations/functions.
 
 3.Justify the worst case complexity of each of your experimental profiling results and compare them to the worst
 case complexity of the theoretical results for the build times with each of the hashing techniques.
+Both quadratic and double hashing appear to just have complexities of O(n). The appear to be linear since they increase
+at a fairly steady rate between different input sizes. They do not drastically change like one would expect if they
+were instead O(n^2). Plus, if we look at their equations, they don't do anything dealing with n^2, but instead
+their equations/functions appear linear. The experimental profiling results seem to match up with
+the theoretical results for the build times for both of them. I do not see anything that suggests
+that they don't line up with the theoretical results.
